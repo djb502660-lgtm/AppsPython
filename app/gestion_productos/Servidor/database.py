@@ -1,3 +1,6 @@
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+
 
 # String de conexión a la base de datos
 SQLALCHEMY_DATABASE_URL="mysql+pymysql://root:@localhost:3306/Gestion_productos_dbs"
