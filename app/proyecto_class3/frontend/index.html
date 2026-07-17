@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFood App - Pide rápido, come delicioso</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar Glassmorphism -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold brand-logo" href="#">
+                <i class="fa-solid fa-burger text-primary-neon"></i> FastFood
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Promociones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn-login" href="login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-cart" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                            <i class="fa-solid fa-basket-shopping"></i> <span class="badge rounded-pill bg-danger" id="cart-count">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container h-100 d-flex align-items-center relative-z">
+            <div class="row w-100">
+                <div class="col-lg-6 hero-text-box">
+                    <span class="badge bg-neon-orange mb-3">🔥 Envío gratis hoy</span>
+                    <h1 class="hero-title">Los antojos no esperan. <br><span class="text-gradient">Nosotros tampoco.</span></h1>
+                    <p class="hero-subtitle">Descubre los mejores combos y promociones, directamente de la parrilla a tu puerta en minutos.</p>
+                    <div class="hero-actions mt-4">
+                        <button class="btn btn-primary-neon btn-lg me-3">Pedir Ahora <i class="fa-solid fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+                <!-- Hero Image Placeholder (Ideally a generated transparent PNG of a burger) -->
+                <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
+                    <div class="hero-image-wrapper floating-anim">
+                        <!-- Placeholder until real image is loaded -->
+                        <div class="placeholder-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <!-- Categories Horizontal Scroll -->
+    <section class="categories-section py-5">
+        <div class="container">
+            <h3 class="section-title mb-4">¿Qué se te antoja?</h3>
+            <div class="categories-scroll" id="categories-container">
+                <!-- Injected via JS -->
+                <div class="category-card active">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Promos</span>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-burger"></i>
+                    <span>Hamburguesas</span>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-pizza-slice"></i>
+                    <span>Pizzas</span>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-hotdog"></i>
+                    <span>Hot Dogs</span>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-ice-cream"></i>
+                    <span>Postres</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section py-5 bg-light-dark">
+        <div class="container">
+            <h3 class="section-title mb-4">Populares cerca de ti</h3>
+            <div class="row g-4" id="products-container">
+                <!-- Product Card Template -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <span class="product-badge">-20%</span>
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-name">Doble Burger Bacon</h5>
+                            <p class="product-desc">Doble carne, queso cheddar, tocino ahumado y salsa especial.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="product-price">$12.50</span>
+                                <button class="btn btn-add-cart"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate for layout demo -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="product-card">
+                        <div class="product-img-box bg-pizza"></div>
+                        <div class="product-info">
+                            <h5 class="product-name">Pizza Pepperoni XL</h5>
+                            <p class="product-desc">Masa artesanal, extra queso y extra pepperoni.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="product-price">$18.00</span>
+                                <button class="btn btn-add-cart"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom border-dark">
+            <h5 class="offcanvas-title fw-bold text-white"><i class="fa-solid fa-basket-shopping me-2 text-primary-neon"></i> Tu Orden</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <!-- Empty state -->
+            <div class="text-center my-auto d-none" id="empty-cart-state">
+                <i class="fa-solid fa-basket-shopping display-1 text-muted mb-3 opacity-25"></i>
+                <p class="text-muted">Tu carrito está vacío.</p>
+            </div>
+            
+            <!-- Cart Items -->
+            <div class="cart-items flex-grow-1" id="cart-items-container">
+                <!-- Item -->
+                <div class="cart-item d-flex justify-content-between align-items-center mb-3 p-3 rounded">
+                    <div>
+                        <h6 class="mb-1 text-white">Doble Burger Bacon</h6>
+                        <span class="text-primary-neon fw-bold">$12.50</span>
+                    </div>
+                    <div class="cart-controls d-flex align-items-center">
+                        <button class="btn btn-sm btn-outline-light rounded-circle"><i class="fa-solid fa-minus"></i></button>
+                        <span class="mx-2 text-white">1</span>
+                        <button class="btn btn-sm btn-outline-light rounded-circle"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-footer mt-auto pt-3 border-top border-dark">
+                <div class="d-flex justify-content-between mb-3 text-white">
+                    <span class="fw-bold">Total:</span>
+                    <span class="fw-bold fs-5 text-primary-neon" id="cart-total">$12.50</span>
+                </div>
+                <button class="btn btn-primary-neon w-100 py-3 fw-bold rounded-pill">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.css"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
