@@ -1,23 +1,34 @@
 # AppsPython
 
-Este repositorio es de carácter educativo, enfocado en ejercicios de programación web avanzada utilizando Python.
+Repositorio educativo de programación web con Python.
 
-## Objetivo
+## Metodología: Spec-as-Source
 
-Proporcionar ejemplos y tutoriales prácticos para aprender conceptos avanzados de desarrollo web con Python, incluyendo frameworks como Flask, Django, FastAPI, y técnicas de frontend, APIs, autenticación, despliegue y pruebas.
+Cada ejercicio sigue este flujo:
 
-## Contenido
+1. **`spec/`** — Especificación (objetivo, alcance, riesgos).
+2. **`skill/`** — Checklist de ejecución por etapas.
+3. **`app/`** — Implementación con tests y validación.
 
-- Scripts y proyectos de ejemplo.
-- Guías paso a paso.
-- Comentarios explicativos.
+## Proyectos
+
+| # | Proyecto | Descripción |
+|---|----------|-------------|
+| 01 | `compresor_pdf` | Comprime PDFs con PyMuPDF |
+| 02 | `camara_web` | Cámara con Flask + getUserMedia |
+| 03 | `proyecto_class3` | Plataforma FastAPI + MySQL |
+| 04 | `redimensionador_imagen` | Reduce fotos con Pillow |
+| 05 | `cronometro_web` | Cronómetro Flask + JS |
+| — | `gestion_productos` | API CRUD de productos |
+| — | `calculadora` | Calculadora HTML/JS |
 
 ## Cómo usar
 
 1. Clonar el repositorio.
-2. Instalar dependencias con `pip install -r requirements.txt`.
-3. Ejecutar los ejemplos según las instrucciones en cada carpeta.
+2. Entrar a la carpeta del ejercicio.
+3. `pip install -r requirements.txt`
+4. Seguir el README de cada módulo.
 
 ## Contribuir
 
-Las contribuciones son bienvenidas: abra un Pull Request con mejoras o nuevos ejercicios.
+Las contribuciones son bienvenidas mediante Pull Request.
