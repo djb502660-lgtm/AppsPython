@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba - Contactos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-4">
+        <h2>Prueba de Conexión</h2>
+        <p class="text-muted">Frontend de prueba en prueba_conexion/static</p>
+
+        <form id="form" class="row g-2 mb-4">
+            <div class="col-md-3">
+                <input type="text" id="nombre" class="form-control" placeholder="Nombre" required>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="telefono" class="form-control" placeholder="Teléfono" required>
+            </div>
+            <div class="col-md-3">
+                <input type="email" id="correo" class="form-control" placeholder="Correo" required>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary w-100">Guardar</button>
+            </div>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="lista"></tbody>
+        </table>
+    </div>
+
+    <script>
+        var API = "http://127.0.0.1:8001/contactos/";
+
+        function cargar() {
+            fetch(API)
+                .then(function (res) { return res.json(); })
+                .then(function (datos) {
+                    var tbody = document.getElementById("lista");
+                    tbody.innerHTML = "";
+                    for (var i = 0; i < datos.length; i++) {
+                        var c = datos[i];
+                        tbody.innerHTML += "<tr>" +
+                            "<td>" + c.id + "</td>" +
+                            "<td>" + c.nombre + "</td>" +
+                            "<td>" + c.telefono + "</td>" +
+                            "<td>" + c.correo + "</td>" +
+                            "<td><button class='btn btn-sm btn-danger' onclick='eliminar(" + c.id + ")'>Eliminar</button></td>" +
+                            "</tr>";
+                    }
+                });
+        }
+
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            var body = {
+                nombre: document.getElementById("nombre").value,
+                telefono: document.getElementById("telefono").value,
+                correo: document.getElementById("correo").value
+            };
+            fetch(API, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+            }).then(function () {
+                document.getElementById("form").reset();
+                cargar();
+            });
+        });
+
+        function eliminar(id) {
+            fetch(API + id, { method: "DELETE" })
+                .then(function () { cargar(); });
+        }
+
+        cargar();
+    </script>
+</body>
+</html>
